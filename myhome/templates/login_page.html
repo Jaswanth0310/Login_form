@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% block content %}
+{% if user.is_authenticated %}
+<html lang="en" xmlns:margin="http://www.w3.org/1999/xhtml" xmlns:display="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+<!--    {-->
+<!--  box-sizing: border-box;-->
+<!--}-->
+.row {
+  display: flex;
+  width:80%;
+}
+  .column {
+  float: left;
+  width: 65%;
+  padding: 10px;
+
+
+  }
+
+    </style>
+</head>
+
+<body>
+<div class="row">
+    <div class="column" >
+<form action="" method="POST">
+
+    {% csrf_token %}
+    {{ form.as_p }}
+<input type="submit" value="Submit"  />
+      </div>
+    <table>
+
+
+<div class="column" >
+
+
+<tr>
+<td>
+ First name
+</td>
+<td>
+ {{ fname }}
+</td>
+</tr>
+<tr>
+    <tr>
+<td>
+ Last name
+</td>
+<td>
+ {{ lname }}
+</td>
+</tr>
+<tr>
+<td>
+ Email
+</td>
+<td>
+ {{ email }}
+</td>
+</tr>
+
+    <tr>
+<td>
+ DOB
+</td>
+<td>
+ {{ birth_date }}
+</td>
+</tr>
+    <tr>
+<td>
+ state
+</td>
+<td>
+ {{ state }}
+</td>
+</tr>
+
+<tr>
+<td>
+ Fruit
+</td>
+<td>
+ {{ favorite_fruit }}
+</td>
+</tr>
+
+<tr>
+<td>
+ gender
+</td>
+<td>
+ {{ gender }}
+</td>
+</tr>
+
+<tr>
+<td>
+ test
+</td>
+<td>
+ {{ test }}
+</td>
+</tr>
+
+</table>
+</div>
+</div>
+</form>
+</body>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+
+</html>
+{% endif %}
+{% endblock %}
